@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes" />
+
+    <!-- Preload critical images for faster loading -->
+    <link rel="preload" as="image" href="/src/assets/profile-photo-new.jpg" fetchpriority="high" />
+    <link rel="preload" as="image" href="/src/assets/linkedin-profile-new.jpg" fetchpriority="high" />
+    <link rel="preload" as="image" href="/src/assets/wallpaper-1.jpg" fetchpriority="high" />
+
+    <!-- Primary SEO -->
+    <title>ThanasOS</title>
+    <meta
+      name="description"
+      content="ThanasOS is the best web iteration of macOS online. A faithful, fully interactive recreation of macOS, rebuilt from the ground up for the browser."
+    />
+    <meta
+      name="keywords"
+      content="macOS web, macOS in browser, macOS recreation, mac OS online, macOS clone, ThanasOS, Thanas R, browser desktop, web macOS, web operating system"
+    />
+    <meta name="author" content="Thanas R" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://thanasos.thanas.dev/" />
+
+    <!-- Favicons -->
+<link rel="icon" type="image/png" href="/favicon-96x96.png?v=5" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=5" />
+<link rel="shortcut icon" href="/favicon.ico?v=5" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=5" />
+<meta name="apple-mobile-web-app-title" content="ThanasOS" />
+<link rel="manifest" href="/site.webmanifest?v=5" />
+
+    <!-- Open Graph -->
+    <meta property="og:url" content="https://thanasos.thanas.dev/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ThanasOS" />
+    <meta property="og:title" content="ThanasOS" />
+    <meta
+      property="og:description"
+      content="ThanasOS is the best web iteration of macOS online. A faithful, fully interactive recreation of macOS, rebuilt from the ground up for the browser."
+    />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="thanasos.thanas.dev" />
+    <meta property="twitter:url" content="https://thanasos.thanas.dev/" />
+    <meta name="twitter:title" content="ThanasOS" />
+    <meta
+      name="twitter:description"
+      content="ThanasOS is the best web iteration of macOS online. A faithful, fully interactive recreation of macOS, rebuilt from the ground up for the browser."
+    />
+
+    <!-- JSON-LD structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "ThanasOS",
+        "alternateName": ["ThanasOS Universe", "macOS Web", "macOS Recreation"],
+        "url": "https://thanasos.thanas.dev/",
+        "description": "ThanasOS — the best macOS recreation on the web. A fully interactive macOS desktop in your browser.",
+        "author": {
+          "@type": "Person",
+          "name": "Thanas R",
+          "url": "https://thanasos.thanas.dev/"
+        }
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "ThanasOS",
+        "applicationCategory": "WebApplication",
+        "operatingSystem": "Web Browser",
+        "description": "A pixel-perfect macOS recreation running entirely in the browser. The best macOS web experience online.",
+        "url": "https://thanasos.thanas.dev/",
+        "creator": { "@type": "Person", "name": "Thanas R" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

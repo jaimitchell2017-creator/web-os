@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* macOS Light Theme */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 13%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 13%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 13%;
+    
+    --primary: 211 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 210 16% 93%;
+    --secondary-foreground: 0 0% 13%;
+    
+    --muted: 210 16% 93%;
+    --muted-foreground: 0 0% 45%;
+    
+    --accent: 211 100% 50%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+    --ring: 211 100% 50%;
+    
+    --radius: 0.75rem;
+    
+    /* macOS Frost & Liquid Glass Design */
+    --macos-glass: 240 20% 98% / 0.4;
+    --macos-glass-border: 240 30% 100% / 0.2;
+    --macos-window-bg: 240 10% 99% / 0.6;
+    --macos-dock-bg: 240 10% 95% / 0.3;
+    --macos-menubar-bg: 240 10% 98% / 0.5;
+    --macos-shadow: 0 0% 0% / 0.15;
+    --macos-traffic-red: 0 100% 65%;
+    --macos-traffic-yellow: 40 100% 58%;
+    --macos-traffic-green: 130 70% 50%;
+  }
+
+  .dark {
+    /* macOS Dark Theme */
+    --background: 0 0% 13%;
+    --foreground: 0 0% 95%;
+    
+    --card: 0 0% 18%;
+    --card-foreground: 0 0% 95%;
+    
+    --popover: 0 0% 18%;
+    --popover-foreground: 0 0% 95%;
+    
+    --primary: 211 100% 60%;
+    --primary-foreground: 0 0% 13%;
+    
+    --secondary: 0 0% 24%;
+    --secondary-foreground: 0 0% 95%;
+    
+    --muted: 0 0% 24%;
+    --muted-foreground: 0 0% 65%;
+    
+    --accent: 211 100% 60%;
+    --accent-foreground: 0 0% 13%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 0 0% 24%;
+    --input: 0 0% 24%;
+    --ring: 211 100% 60%;
+    
+    /* macOS Frost & Liquid Glass Design - Dark */
+    --macos-glass: 224 30% 10% / 0.4;
+    --macos-glass-border: 224 40% 25% / 0.2;
+    --macos-window-bg: 224 20% 12% / 0.6;
+    --macos-dock-bg: 224 30% 8% / 0.3;
+    --macos-menubar-bg: 224 20% 10% / 0.5;
+    --macos-shadow: 0 0% 0% / 0.5;
+    --macos-traffic-red: 0 100% 65%;
+    --macos-traffic-yellow: 40 100% 58%;
+    --macos-traffic-green: 130 70% 50%;
+  }
+}
+
+@layer base {
+  :root {
+    /* Apple-cursor (ful1e5/apple_cursor) inspired glove cursors. SVGs live in /public/cursors. */
+    --thanasos-cursor-default: url('/cursors/cursor.svg') 8 4, default;
+    --thanasos-cursor-pointer: url('/cursors/pointinghand.svg') 10 2, pointer;
+    --thanasos-cursor-grab: url('/cursors/openhand.svg') 14 14, grab;
+    --thanasos-cursor-grabbing: url('/cursors/closedhand.svg') 14 14, grabbing;
+    --thanasos-cursor-help: url('/cursors/help.svg') 8 4, help;
+    --thanasos-cursor-notallowed: url('/cursors/notallowed.svg') 14 14, not-allowed;
+  }
+
+  /* Apply the macOS glove cursor across the whole app (desktop only). */
+  html:not(.is-mobile),
+  html:not(.is-mobile) body,
+  html:not(.is-mobile) * {
+    cursor: var(--thanasos-cursor-default);
+  }
+  html:not(.is-mobile) a,
+  html:not(.is-mobile) a *,
+  html:not(.is-mobile) button,
+  html:not(.is-mobile) button *,
+  html:not(.is-mobile) [role="button"],
+  html:not(.is-mobile) [role="button"] *,
+  html:not(.is-mobile) [role="link"],
+  html:not(.is-mobile) [role="tab"],
+  html:not(.is-mobile) label,
+  html:not(.is-mobile) summary,
+  html:not(.is-mobile) select,
+  html:not(.is-mobile) .cursor-pointer,
+  html:not(.is-mobile) .cursor-pointer * {
+    cursor: var(--thanasos-cursor-pointer) !important;
+  }
+  html:not(.is-mobile) input[type="text"],
+  html:not(.is-mobile) input[type="search"],
+  html:not(.is-mobile) input[type="email"],
+  html:not(.is-mobile) input[type="password"],
+  html:not(.is-mobile) input[type="number"],
+  html:not(.is-mobile) textarea,
+  html:not(.is-mobile) [contenteditable="true"] {
+    cursor: text !important;
+  }
+  html:not(.is-mobile) .cursor-move,
+  html:not(.is-mobile) [class*="cursor-grab"] {
+    cursor: var(--thanasos-cursor-grab) !important;
+  }
+  html:not(.is-mobile) .cursor-grabbing,
+  html:not(.is-mobile) :active.cursor-move {
+    cursor: var(--thanasos-cursor-grabbing) !important;
+  }
+  html:not(.is-mobile) .cursor-help { cursor: var(--thanasos-cursor-help) !important; }
+  html:not(.is-mobile) .cursor-not-allowed,
+  html:not(.is-mobile) [disabled],
+  html:not(.is-mobile) :disabled {
+    cursor: var(--thanasos-cursor-notallowed) !important;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground overflow-hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  /* But allow selection inside real text inputs / editors */
+  input, textarea, [contenteditable="true"], .allow-select, .allow-select * {
+    user-select: text !important;
+    -webkit-user-select: text !important;
+  }
+  
+  /* macOS scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+  
+  /* Backdrop blur support - Enhanced Frost Glass */
+  .backdrop-blur-macos {
+    backdrop-filter: blur(80px) saturate(180%);
+    -webkit-backdrop-filter: blur(80px) saturate(180%);
+  }
+  
+  .backdrop-blur-macos-heavy {
+    backdrop-filter: blur(120px) saturate(200%);
+    -webkit-backdrop-filter: blur(120px) saturate(200%);
+  }
+  
+  /* Smooth animations */
+  * {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+/* ===================== Liquid Glass (macOS Tahoe) ===================== */
+@layer utilities {
+  .liquid-glass {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.18) 0%,
+      rgba(255, 255, 255, 0.06) 50%,
+      rgba(255, 255, 255, 0.12) 100%
+    );
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  }
+  .liquid-glass-dark {
+    background: linear-gradient(
+      135deg,
+      rgba(20, 20, 25, 0.55) 0%,
+      rgba(20, 20, 25, 0.35) 50%,
+      rgba(20, 20, 25, 0.5) 100%
+    );
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+      0 12px 40px rgba(0, 0, 0, 0.45),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+  .liquid-glass-card {
+    background: rgba(28, 28, 32, 0.55);
+    backdrop-filter: blur(50px) saturate(190%);
+    -webkit-backdrop-filter: blur(50px) saturate(190%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+  .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; width: 0; height: 0; }
+  .thin-scrollbar { scrollbar-width: thin; scrollbar-color: rgba(0,0,0,0.25) transparent; }
+  .thin-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+  .thin-scrollbar::-webkit-scrollbar-track { background: transparent; }
+  .thin-scrollbar::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.22); border-radius: 8px; }
+  .thin-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.4); }
+  .dark .thin-scrollbar { scrollbar-color: rgba(255,255,255,0.22) transparent; }
+  .dark .thin-scrollbar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.22); }
+}
+
+/* Boot/restart loader (turtle) */
+@keyframes turtle-load {
+  0%   { width: 0; }
+  10%  { width: 5%; }
+  30%  { width: 25%; }
+  50%  { width: 44%; }
+  70%  { width: 72%; }
+  90%  { width: 92%; }
+  100% { width: 100%; }
+}
+.turtle-progress::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 4px;
+  background: white;
+  animation: turtle-load 3.5s linear forwards;
+}
+
+@keyframes launchpadIn {
+  0% { opacity: 0; transform: scale(1.06); backdrop-filter: blur(0px) saturate(100%); }
+  100% { opacity: 1; transform: scale(1); backdrop-filter: blur(60px) saturate(160%); }
+}
+@keyframes launchpadOut {
+  0% { opacity: 1; transform: scale(1); backdrop-filter: blur(60px) saturate(160%); -webkit-backdrop-filter: blur(60px) saturate(160%); }
+  60% { opacity: 0.5; }
+  100% { opacity: 0; transform: scale(1.04); backdrop-filter: blur(0px) saturate(100%); -webkit-backdrop-filter: blur(0px) saturate(100%); }
+}
+@keyframes launchpadItemIn {
+  0% { opacity: 0; transform: scale(0.6) translateY(20px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes launchpadItemOut {
+  0% { opacity: 1; transform: scale(1) translateY(0) rotate(0deg); filter: blur(0); }
+  100% { opacity: 0; transform: scale(0.4) translateY(40px) rotate(-4deg); filter: blur(8px); }
+}
+.launchpad-exit {
+  animation: launchpadOut 0.42s cubic-bezier(0.4,0,0.2,1) both;
+  pointer-events: none;
+}
+.launchpad-item-exit {
+  animation: launchpadItemOut 0.38s cubic-bezier(0.4,0,0.6,1) both;
+}
+.menubar-slide {
+  transition: transform 0.32s cubic-bezier(0.2,0.7,0.2,1);
+}
+.menubar-slide-up {
+  transform: translateY(-100%);
+}
+
+/* GitHub README markdown rendering */
+.gh-readme { font-size: 14px; line-height: 1.55; }
+.gh-readme table { display: table; width: 100%; border-collapse: collapse; table-layout: fixed; margin: 0.6em 0; }
+.gh-readme thead { display: table-header-group; }
+.gh-readme tbody { display: table-row-group; }
+.gh-readme tr { display: table-row; }
+.gh-readme td, .gh-readme th { display: table-cell; vertical-align: top; padding: 6px 12px; border: 0; }
+.gh-readme th { background: transparent; font-weight: 600; }
+.gh-readme img { display: inline-block; max-width: 100%; height: auto; vertical-align: middle; }
+.gh-readme p { margin: 0.4em 0; }
+.gh-readme h1, .gh-readme h2, .gh-readme h3 { font-weight: 600; margin: 0.4em 0 0.5em; line-height: 1.25; }
+.gh-readme h1 { font-size: 1.7em; padding-bottom: .3em; border-bottom: 1px solid currentColor; border-color: rgba(127,127,127,.25); }
+.gh-readme h2 { font-size: 1.35em; padding-bottom: .3em; border-bottom: 1px solid rgba(127,127,127,.25); }
+.gh-readme h3 { font-size: 1.1em; }
+.gh-readme a { color: #2f81f7; text-decoration: none; }
+.gh-readme a:hover { text-decoration: underline; }
+.gh-readme hr { border: 0; border-top: 1px solid rgba(127,127,127,.25); margin: 1em 0; }
+.gh-readme ul, .gh-readme ol { padding-left: 1.6em; margin: 0.4em 0; }
+.gh-readme code { background: rgba(127,127,127,.15); padding: 0.1em 0.4em; border-radius: 4px; font-size: 0.9em; }
+.gh-readme pre { background: rgba(127,127,127,.12); padding: 12px; border-radius: 8px; overflow:auto; }
+.gh-readme blockquote { border-left: 3px solid rgba(127,127,127,.4); padding-left: 12px; color: inherit; opacity: 0.85; margin: 0.4em 0; }
+.gh-readme p[align="left"] img,
+.gh-readme p[align="center"] img { display: inline-block; }
+
+/* Hide Mapbox branding inside Maps app */
+.maps-app-container .mapboxgl-ctrl-logo,
+.maps-app-container .mapboxgl-ctrl-attrib,
+.maps-app-container .mapboxgl-ctrl-bottom-left,
+.maps-app-container .mapboxgl-ctrl-bottom-right { display: none !important; }
+
+   @keyframes calc-digit-wobble {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+@keyframes spotlight-pop {
+  0%   { transform: scale(0.6); opacity: 0; }
+  60%  { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
